@@ -1,5 +1,6 @@
 import React from "react";
 import {
+    StyleSheet,
     Text,
     View,
 } from 'react-native';
@@ -20,19 +21,19 @@ const NetworkDetailsElement = ({subnetInput}: Props): JSX.Element => {
 
     return (
         <View>
-            <View>
+            <View style={styles.row}>
                 <Text>Base address:</Text>
                 <Text>{net.base}</Text>
             </View>
-            <View>
+            <View style={styles.row}>
                 <Text>Subnet mask:</Text>
                 <Text>{net.mask}</Text>
             </View>
-            <View>
+            <View style={styles.row}>
                 <Text>Broadcast address:</Text>
                 <Text>{net.broadcast}</Text>
             </View>
-            <View>
+            <View style={styles.row}>
                 <Text>First address:</Text>
                 <Text>{net.first}</Text>
             </View>
@@ -43,5 +44,11 @@ const NetworkDetailsElement = ({subnetInput}: Props): JSX.Element => {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    row: {
+        paddingBottom: 12
+    }
+});
 
 export default NetworkDetailsElement;
