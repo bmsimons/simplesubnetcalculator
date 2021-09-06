@@ -16,9 +16,6 @@ interface Props {
 const NetworkDetailsElement = ({subnetInput}: Props): JSX.Element => {
     const net = new Netmask(subnetInput.address + '/' + subnetInput.mask);
 
-    console.log(subnetInput);
-    console.log(net);
-
     return (
         <View>
             <View style={styles.row}>

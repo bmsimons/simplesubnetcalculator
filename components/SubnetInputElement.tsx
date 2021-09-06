@@ -21,7 +21,6 @@ const SubnetInputElement = ({isDarkMode, setSubnetAddress, setSubnetMask}: Props
 
     const setError = (isError: boolean): void => {
         if (isError) {
-            console.log('error!');
             setBorderStyle({ borderColor: '#FE2E2E' });
         } else {
             setBorderStyle(isDarkMode ? { borderColor: '#D6DBDF' } : { borderColor: '#85929E' });
