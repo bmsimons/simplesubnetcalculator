@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         alignItems: 'stretch'
     },
     text: {
-        fontSize: 18
+        fontSize: 24
     }
 });
 

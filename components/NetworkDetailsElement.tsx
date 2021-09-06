@@ -22,24 +22,24 @@ const NetworkDetailsElement = ({subnetInput}: Props): JSX.Element => {
     return (
         <View>
             <View style={styles.row}>
-                <Text>Base address:</Text>
-                <Text>{net.base}</Text>
+                <Text style={styles.header}>Base address:</Text>
+                <Text style={styles.text}>{net.base}</Text>
             </View>
             <View style={styles.row}>
-                <Text>Subnet mask:</Text>
-                <Text>{net.mask}</Text>
+                <Text style={styles.header}>Subnet mask:</Text>
+                <Text style={styles.text}>{net.mask}</Text>
             </View>
             <View style={styles.row}>
-                <Text>Broadcast address:</Text>
-                <Text>{net.broadcast}</Text>
+                <Text style={styles.header}>Broadcast address:</Text>
+                <Text style={styles.text}>{net.broadcast}</Text>
             </View>
             <View style={styles.row}>
-                <Text>First address:</Text>
-                <Text>{net.first}</Text>
+                <Text style={styles.header}>First address:</Text>
+                <Text style={styles.text}>{net.first}</Text>
             </View>
             <View>
-                <Text>Last address:</Text>
-                <Text>{net.last}</Text>
+                <Text style={styles.header}>Last address:</Text>
+                <Text style={styles.text}>{net.last}</Text>
             </View>
         </View>
     )
@@ -47,7 +47,15 @@ const NetworkDetailsElement = ({subnetInput}: Props): JSX.Element => {
 
 const styles = StyleSheet.create({
     row: {
-        paddingBottom: 12
+        paddingBottom: 26
+    },
+    header: {
+        fontSize: 15,
+        fontWeight: '700',
+        paddingBottom: 3
+    },
+    text: {
+        fontSize: 18
     }
 });
 
