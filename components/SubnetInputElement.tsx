@@ -12,10 +12,11 @@ import { ISubnetInput } from '../interfaces/SubnetInput';
 
 interface Props {
     isDarkMode: boolean;
-    setSubnetInput: React.Dispatch<React.SetStateAction<ISubnetInput>>;
+    setSubnetAddress: (input: string) => void;
+    setSubnetMask: (input: number) => void;
 }
 
-const SubnetInputElement = ({isDarkMode, setSubnetInput}: Props): JSX.Element => {
+const SubnetInputElement = ({isDarkMode, setSubnetAddress, setSubnetMask}: Props): JSX.Element => {
     const [ borderStyle, setBorderStyle ] = useState(isDarkMode ? { borderColor: '#D6DBDF' } : { borderColor: '#85929E' });
 
     const setError = (isError: boolean): void => {
@@ -27,8 +28,6 @@ const SubnetInputElement = ({isDarkMode, setSubnetInput}: Props): JSX.Element =>
         }
     }
 
-    const subnetInput: ISubnetInput = {address: '0.0.0.0', mask: 24}
-
     const validateAddress = (input: string): boolean => {
         return IPv4.isValid(input);
     }
@@ -37,8 +36,7 @@ const SubnetInputElement = ({isDarkMode, setSubnetInput}: Props): JSX.Element =>
         if (validateAddress(input)) {
             setError(false);
 
-            subnetInput.address = input;
-            setSubnetInput(subnetInput);
+            setSubnetAddress(input);
         } else {
             setError(true);
         }
@@ -52,8 +50,7 @@ const SubnetInputElement = ({isDarkMode, setSubnetInput}: Props): JSX.Element =>
         if (validateSubnet(input)) {
             setError(false);
 
-            subnetInput.mask = input;
-            setSubnetInput(subnetInput);
+            setSubnetMask(input);
         } else {
             setError(true);
         }

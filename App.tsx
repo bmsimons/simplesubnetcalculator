@@ -14,6 +14,16 @@ import SubnetInputElement from './components/SubnetInputElement';
 import NetworkDetailsElement from './components/NetworkDetailsElement';
 
 const App = () => {
+  const setSubnetAddress = (input: string): void => {
+    const newSubnetInput: ISubnetInput = { address: input, mask: subnetInput.mask }
+    setSubnetInput(newSubnetInput);
+  }
+
+  const setSubnetMask = (input: number): void => {
+    const newSubnetInput: ISubnetInput = { address: subnetInput.address, mask: input }
+    setSubnetInput(newSubnetInput);
+  }
+
   const [ subnetInput, setSubnetInput ] = useState<ISubnetInput>({ address: '0.0.0.0', mask: 24})
 
   const isDarkMode = useColorScheme() === 'dark';
@@ -25,7 +35,7 @@ const App = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
         <View style={[backgroundStyle, styles.inputContainer]}>
-          <SubnetInputElement isDarkMode={isDarkMode} setSubnetInput={setSubnetInput}/>
+          <SubnetInputElement isDarkMode={isDarkMode} setSubnetAddress={setSubnetAddress} setSubnetMask={setSubnetMask} />
         </View>
         <View style={[backgroundStyle, styles.inputContainer]}>
           <NetworkDetailsElement subnetInput={subnetInput} />
