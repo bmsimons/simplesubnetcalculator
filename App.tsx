@@ -37,7 +37,7 @@ const App = () => {
         <View style={[backgroundStyle, styles.inputContainer]}>
           <SubnetInputElement isDarkMode={isDarkMode} setSubnetAddress={setSubnetAddress} setSubnetMask={setSubnetMask} />
         </View>
-        <View style={[backgroundStyle, styles.inputContainer]}>
+        <View style={[backgroundStyle, styles.inputContainer, styles.networkDetails]}>
           <NetworkDetailsElement subnetInput={subnetInput} />
         </View>
       </ScrollView>
@@ -56,8 +56,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#222'
   },
   inputContainer: {
-    margin: 24,
+    marginLeft: 32,
+    marginRight: 32,
+    marginBottom: 12,
     marginTop: 32
+  },
+  networkDetails: {
+    paddingLeft: 12
   }
 });
 

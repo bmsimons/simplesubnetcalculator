@@ -47,12 +47,15 @@ const styles = StyleSheet.create({
         paddingBottom: 26
     },
     header: {
-        fontSize: 15,
+        fontSize: 17,
         fontWeight: '700',
-        paddingBottom: 3
+        paddingBottom: 3,
+        fontFamily: 'Lato'
     },
     text: {
-        fontSize: 18
+        fontSize: 21,
+        fontFamily: 'Lato',
+        fontWeight: '400'
     }
 });
 
