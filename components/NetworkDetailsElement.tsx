@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: '700',
         paddingBottom: 3,
-        fontFamily: 'Lato'
+        fontFamily: 'Lato-Bold'
     },
     text: {
         fontSize: 21,
-        fontFamily: 'Lato',
+        fontFamily: 'Lato-Regular',
         fontWeight: '400'
     }
 });
