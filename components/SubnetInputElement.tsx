@@ -4,6 +4,7 @@ import {
     Text,
     TextInput,
     View,
+    Platform
 } from 'react-native';
 
 import { IPv4 } from 'ipaddr.js';
@@ -59,11 +60,11 @@ const SubnetInputElement = ({isDarkMode, setSubnetAddress, setSubnetMask}: Props
     return (
         <View style={[styles.inputElement, borderStyle]}>
             <View style={[styles.flexRow, {flex: 1, flexDirection: 'column', flexGrow: 1, alignItems: 'stretch'}]}>
-                <TextInput style={[styles.text, textStyle]} placeholder="0.0.0.0" placeholderTextColor={textStyle.color} onChangeText={(text: string): void => { processAddress(text) } }/>
+                <TextInput style={[styles.text, textStyle]} placeholder="0.0.0.0" onChangeText={(text: string): void => { processAddress(text) } }/>
             </View>
             <View style={styles.flexRow}>
-                <Text style={[styles.text, textStyle, {marginRight: 4}]}>/</Text>
-                <TextInput style={[styles.text, textStyle]} placeholder="24" placeholderTextColor={textStyle.color} onChangeText={(text: string): void => { processSubnet(parseInt(text)) } }/>
+                <Text style={[styles.text, styles.separator, textStyle]}>/</Text>
+                <TextInput style={[styles.text, textStyle]} placeholder="24" onChangeText={(text: string): void => { processSubnet(parseInt(text)) } }/>
             </View>
         </View>
     );
@@ -91,6 +92,10 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontFamily: 'Lato',
         fontWeight: '400'
+    },
+    separator: {
+        marginRight: 4,
+        marginTop: Platform.OS === 'android' ? 9 : 0
     }
 });
 

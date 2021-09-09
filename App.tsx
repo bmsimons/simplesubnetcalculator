@@ -6,6 +6,7 @@ import {
   StyleSheet,
   useColorScheme,
   View,
+  Platform
 } from 'react-native';
 
 import { ISubnetInput } from './interfaces/SubnetInput';
@@ -27,12 +28,13 @@ const App = () => {
   const [ subnetInput, setSubnetInput ] = useState<ISubnetInput>({ address: '0.0.0.0', mask: 24})
 
   const isDarkMode = useColorScheme() === 'dark';
+  const isAndroid = Platform.OS === 'android';
 
   const backgroundStyle = isDarkMode ? styles.darker : styles.lighter;
 
   return (
     <SafeAreaView style={[backgroundStyle, styles.flex]}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <StatusBar backgroundColor={backgroundStyle.backgroundColor} barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
         <View style={[backgroundStyle, styles.inputContainer]}>
           <SubnetInputElement isDarkMode={isDarkMode} setSubnetAddress={setSubnetAddress} setSubnetMask={setSubnetMask} />
