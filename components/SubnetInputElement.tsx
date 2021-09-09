@@ -8,7 +8,7 @@ import {
 
 import { IPv4 } from 'ipaddr.js';
 
-import { ISubnetInput } from '../interfaces/SubnetInput';
+import Globals from '../globals'
 
 interface Props {
     isDarkMode: boolean;
@@ -18,6 +18,7 @@ interface Props {
 
 const SubnetInputElement = ({isDarkMode, setSubnetAddress, setSubnetMask}: Props): JSX.Element => {
     const [ borderStyle, setBorderStyle ] = useState(isDarkMode ? { borderColor: '#D6DBDF' } : { borderColor: '#85929E' });
+    const textStyle = isDarkMode ? { color: Globals.lightFontColor } : { color: Globals.darkFontColor };
 
     const setError = (isError: boolean): void => {
         if (isError) {
@@ -58,11 +59,11 @@ const SubnetInputElement = ({isDarkMode, setSubnetAddress, setSubnetMask}: Props
     return (
         <View style={[styles.inputElement, borderStyle]}>
             <View style={[styles.flexRow, {flex: 1, flexDirection: 'column', flexGrow: 1, alignItems: 'stretch'}]}>
-                <TextInput style={styles.text} placeholder="0.0.0.0" onChangeText={(text: string): void => { processAddress(text) } }/>
+                <TextInput style={[styles.text, textStyle]} placeholder="0.0.0.0" placeholderTextColor={textStyle.color} onChangeText={(text: string): void => { processAddress(text) } }/>
             </View>
             <View style={styles.flexRow}>
-                <Text style={[styles.text, {marginRight: 4}]}>/</Text>
-                <TextInput style={styles.text} placeholder="24" onChangeText={(text: string): void => { processSubnet(parseInt(text)) } }/>
+                <Text style={[styles.text, textStyle, {marginRight: 4}]}>/</Text>
+                <TextInput style={[styles.text, textStyle]} placeholder="24" placeholderTextColor={textStyle.color} onChangeText={(text: string): void => { processSubnet(parseInt(text)) } }/>
             </View>
         </View>
     );

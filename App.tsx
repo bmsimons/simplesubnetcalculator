@@ -38,7 +38,7 @@ const App = () => {
           <SubnetInputElement isDarkMode={isDarkMode} setSubnetAddress={setSubnetAddress} setSubnetMask={setSubnetMask} />
         </View>
         <View style={[backgroundStyle, styles.inputContainer, styles.networkDetails]}>
-          <NetworkDetailsElement subnetInput={subnetInput} />
+          <NetworkDetailsElement isDarkMode={isDarkMode} subnetInput={subnetInput} />
         </View>
       </ScrollView>
     </SafeAreaView>

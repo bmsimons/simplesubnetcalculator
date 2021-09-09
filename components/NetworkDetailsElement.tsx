@@ -8,35 +8,39 @@ import {
 import { Netmask } from 'netmask';
 
 import { ISubnetInput } from '../interfaces/SubnetInput';
+import Globals from '../globals';
 
 interface Props {
+    isDarkMode: boolean;
     subnetInput: ISubnetInput;
 }
 
-const NetworkDetailsElement = ({subnetInput}: Props): JSX.Element => {
+const NetworkDetailsElement = ({isDarkMode, subnetInput}: Props): JSX.Element => {
     const net = new Netmask(subnetInput.address + '/' + subnetInput.mask);
+
+    const textStyle = isDarkMode ? { color: Globals.lightFontColor } : { color: Globals.darkFontColor };
 
     return (
         <View>
             <View style={styles.row}>
-                <Text style={styles.header}>Base address:</Text>
-                <Text style={styles.text}>{net.base}</Text>
+                <Text style={[styles.header, textStyle]}>Base address:</Text>
+                <Text style={[styles.text, textStyle]}>{net.base}</Text>
             </View>
             <View style={styles.row}>
-                <Text style={styles.header}>Subnet mask:</Text>
-                <Text style={styles.text}>{net.mask}</Text>
+                <Text style={[styles.header, textStyle]}>Subnet mask:</Text>
+                <Text style={[styles.text, textStyle]}>{net.mask}</Text>
             </View>
             <View style={styles.row}>
-                <Text style={styles.header}>Broadcast address:</Text>
-                <Text style={styles.text}>{net.broadcast}</Text>
+                <Text style={[styles.header, textStyle]}>Broadcast address:</Text>
+                <Text style={[styles.text, textStyle]}>{net.broadcast}</Text>
             </View>
             <View style={styles.row}>
-                <Text style={styles.header}>First address:</Text>
-                <Text style={styles.text}>{net.first}</Text>
+                <Text style={[styles.header, textStyle]}>First address:</Text>
+                <Text style={[styles.text, textStyle]}>{net.first}</Text>
             </View>
             <View>
-                <Text style={styles.header}>Last address:</Text>
-                <Text style={styles.text}>{net.last}</Text>
+                <Text style={[styles.header, textStyle]}>Last address:</Text>
+                <Text style={[styles.text, textStyle]}>{net.last}</Text>
             </View>
         </View>
     )
