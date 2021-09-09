@@ -28,7 +28,6 @@ const App = () => {
   const [ subnetInput, setSubnetInput ] = useState<ISubnetInput>({ address: '0.0.0.0', mask: 24})
 
   const isDarkMode = useColorScheme() === 'dark';
-  const isAndroid = Platform.OS === 'android';
 
   const backgroundStyle = isDarkMode ? styles.darker : styles.lighter;
 
