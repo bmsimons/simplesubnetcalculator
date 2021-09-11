@@ -1,4 +1,4 @@
-package com.ssc;
+package me.bartsimons.ssc;
 
 import com.facebook.react.ReactActivity;
 
